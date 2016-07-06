@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.homepage     = 'http://www.jodybrewster.net'
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/jodybrewster/react-native-linkedin-login.git" }
+  s.source       = { :git => "https://github.com/dudeinthemirror/react-native-linkedin-login.git" }
   s.source_files = 'RNLinkedinLogin/*'
   s.dependency 'AFNetworking', '~> 3.0'
 end
