@@ -20,11 +20,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <AFNetworking/AFHTTPRequestOperationManager.h>
+#import <AFNetworking/AFHTTPSessionManager.h>
 
 @class LIALinkedInApplication;
 
-@interface LIALinkedInHttpClient : AFHTTPRequestOperationManager
+@interface LIALinkedInHttpClient : AFHTTPSessionManager
 
 + (LIALinkedInHttpClient *)clientForApplication:(LIALinkedInApplication *)application;
 
