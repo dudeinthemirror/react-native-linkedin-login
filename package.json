@@ -4,6 +4,7 @@
   "description": "React Native wrapper for native Linkedin login button and manager",
   "main": "index",
   "scripts": {
+    "start": "node_modules/react-native/packager/packager.sh",
     "flow": "flow check",
     "lint": "eslint --ext .js,.jsx .",
     "test": "echo \"Error: no test specified\" && exit 1",
