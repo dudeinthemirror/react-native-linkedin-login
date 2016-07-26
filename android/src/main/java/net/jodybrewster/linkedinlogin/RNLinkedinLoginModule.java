@@ -58,7 +58,6 @@ public class RNLinkedinLoginModule extends ReactContextBaseJavaModule {
     public RNLinkedinLoginModule(final ReactApplicationContext reactContext, Activity activity) {
 
         super(reactContext);
-        _activity = activity;
         _context = reactContext;
 
         _availablePermissions = new ArrayList<Scope.LIPermission>();
@@ -88,8 +87,9 @@ public class RNLinkedinLoginModule extends ReactContextBaseJavaModule {
     public void init(final String accessToken, final String expiresOn)
     {
 
+
         Log.d(TAG, "init");
-        _activity.runOnUiThread(new Runnable() {
+        this.getCurrentActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
 
@@ -131,7 +131,7 @@ public class RNLinkedinLoginModule extends ReactContextBaseJavaModule {
     public void getRequest(final String url) {
 
         Log.d(TAG, "getRequest");
-        _activity.runOnUiThread(new Runnable() {
+        this.getCurrentActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 APIHelper.getInstance(_context).getRequest(_context, url, new ApiListener() {
@@ -188,13 +188,13 @@ public class RNLinkedinLoginModule extends ReactContextBaseJavaModule {
     public void login(final String clientId, final String redirectUrl, final String clientSecret, final String state, final ReadableArray scopes) {
 
         Log.d(TAG, "login: " + clientId);
-        _activity.runOnUiThread(new Runnable() {
+        this.getCurrentActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
 
 
                 Log.d(TAG, "signIn");
-                LISessionManager.getInstance(_context).init(_activity, Scope.build(Scope.R_BASICPROFILE, Scope.R_EMAILADDRESS), new AuthListener() {
+                LISessionManager.getInstance(_context).init(this.getCurrentActivity(), Scope.build(Scope.R_BASICPROFILE, Scope.R_EMAILADDRESS), new AuthListener() {
                     @Override
                     public void onAuthSuccess() {
                         // Authentication was successful.  You can now do
@@ -255,7 +255,7 @@ public class RNLinkedinLoginModule extends ReactContextBaseJavaModule {
      */
     @ReactMethod
     public void logout() {
-        _activity.runOnUiThread(new Runnable() {
+        this.getCurrentActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 LISessionManager.getInstance(_context).clearSession();
