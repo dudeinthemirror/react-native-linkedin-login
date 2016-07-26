@@ -55,7 +55,7 @@ public class RNLinkedinLoginModule extends ReactContextBaseJavaModule {
      * @param reactContext ReactContext used to access react methods
      * @param activity Originating Activity
      */
-    public RNLinkedinLoginModule(final ReactApplicationContext reactContext, Activity activity) {
+    public RNLinkedinLoginModule(final ReactApplicationContext reactContext) {
 
         super(reactContext);
         _context = reactContext;
@@ -188,13 +188,13 @@ public class RNLinkedinLoginModule extends ReactContextBaseJavaModule {
     public void login(final String clientId, final String redirectUrl, final String clientSecret, final String state, final ReadableArray scopes) {
 
         Log.d(TAG, "login: " + clientId);
+        final Activity act = this.getCurrentActivity();
         this.getCurrentActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
 
-
                 Log.d(TAG, "signIn");
-                LISessionManager.getInstance(_context).init(this.getCurrentActivity(), Scope.build(Scope.R_BASICPROFILE, Scope.R_EMAILADDRESS), new AuthListener() {
+                LISessionManager.getInstance(_context).init(act, Scope.build(Scope.R_BASICPROFILE, Scope.R_EMAILADDRESS), new AuthListener() {
                     @Override
                     public void onAuthSuccess() {
                         // Authentication was successful.  You can now do

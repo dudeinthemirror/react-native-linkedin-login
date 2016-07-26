@@ -14,7 +14,7 @@ import java.util.List;
 
 public class RNLinkedinLoginPackage implements ReactPackage {
 
-    public RNLinkedinLoginPackage(Activity activity) {
+    public RNLinkedinLoginPackage() {
         super();
     }
 
