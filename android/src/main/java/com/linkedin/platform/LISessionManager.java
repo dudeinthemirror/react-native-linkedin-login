@@ -113,6 +113,7 @@ public class LISessionManager {
         //check if LI
         if (!LIAppVersion.isLIAppCurrent(ctx)) {
             AppStore.goAppStore(activity, showGoToAppStoreDialog);
+            callback.onAuthError(new LIAuthError(LIAppErrorCode.LINKEDIN_APP_NOT_FOUND, "LinkedIn app not found."));
             return;
         }
         authListener = callback;
