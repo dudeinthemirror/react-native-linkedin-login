@@ -43,14 +43,14 @@ RCT_EXPORT_MODULE();
 
 RCT_EXPORT_METHOD(login:(NSString *)clientId redirectUrl:(NSString *)redirectUrl clientSecret:(NSString *)clientSecret state:(NSString *)state scopes:(NSArray *)scopes)
 {
-  
+
   self.clientId = clientId;
   self.redirectUrl = redirectUrl;
   self.clientSecret = clientSecret;
   self.state = state;
   self.scopes = scopes;
-  
-  
+
+
   [self.client getAuthorizationCode:^(NSString *code) {
     [self.client getAccessToken:code success:^(NSDictionary *accessTokenData) {
       NSString *accessToken = [accessTokenData objectForKey:@"access_token"];
@@ -58,15 +58,13 @@ RCT_EXPORT_METHOD(login:(NSString *)clientId redirectUrl:(NSString *)redirectUrl
       NSDictionary *body = @{@"accessToken": accessToken, @"expiresOn": expiresOn};
       return [self.bridge.eventDispatcher sendDeviceEventWithName:@"linkedinLogin"
                                                           body:body];
-      
-      
+
+
     }                   failure:^(NSError *error) {
       NSLog(@"Quering accessToken failed %@", error);
       return [self.bridge.eventDispatcher sendDeviceEventWithName:@"linkedinLoginError"
                                                           body:@{@"error": error.description}];
     }];
-  }                      cancel:^{
-    NSLog(@"Authorization was cancelled by user");
     return [self.bridge.eventDispatcher sendDeviceEventWithName:@"linkedinLoginError"
                                                         body:@{@"error": @"User canceled"}];
   }                     failure:^(NSError *error) {
@@ -79,11 +77,13 @@ RCT_EXPORT_METHOD(login:(NSString *)clientId redirectUrl:(NSString *)redirectUrl
 
 
 - (LIALinkedInHttpClient *)client {
+  dispatch_async(dispatch_get_main_queue(), ^{
   LIALinkedInApplication *application = [LIALinkedInApplication applicationWithRedirectURL:self.redirectUrl
                                                                                   clientId:self.clientId
                                                                               clientSecret:self.clientSecret
                                                                                      state:self.state
                                                                              grantedAccess:self.scopes];
+                                                                           });
   return [LIALinkedInHttpClient clientForApplication:application presentingViewController:nil];
 }
 

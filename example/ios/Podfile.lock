@@ -16,29 +16,30 @@ PODS:
     - AFNetworking/NSURLSession
   - react-native-linkedin-login (1.2.2):
     - AFNetworking (~> 3.0)
-  - React/Core (0.22.2)
-  - React/RCTActionSheet (0.22.2):
+  - React/Core (0.29.2)
+  - React/RCTActionSheet (0.29.2):
     - React/Core
-  - React/RCTCameraRoll (0.22.2):
+  - React/RCTCameraRoll (0.29.2):
     - React/Core
-  - React/RCTGeolocation (0.22.2):
+    - React/RCTImage
+  - React/RCTGeolocation (0.29.2):
     - React/Core
-  - React/RCTImage (0.22.2):
+  - React/RCTImage (0.29.2):
     - React/Core
     - React/RCTNetwork
-  - React/RCTLinkingIOS (0.22.2):
+  - React/RCTLinkingIOS (0.29.2):
     - React/Core
-  - React/RCTNetwork (0.22.2):
+  - React/RCTNetwork (0.29.2):
     - React/Core
-  - React/RCTPushNotification (0.22.2):
+  - React/RCTPushNotification (0.29.2):
     - React/Core
-  - React/RCTSettings (0.22.2):
+  - React/RCTSettings (0.29.2):
     - React/Core
-  - React/RCTText (0.22.2):
+  - React/RCTText (0.29.2):
     - React/Core
-  - React/RCTVibration (0.22.2):
+  - React/RCTVibration (0.29.2):
     - React/Core
-  - React/RCTWebSocket (0.22.2):
+  - React/RCTWebSocket (0.29.2):
     - React/Core
 
 DEPENDENCIES:
@@ -64,8 +65,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  React: be2dc9f9a325f0b4db1fcd3a0cea29c0e00af9b7
-  react-native-linkedin-login: c99edb5a4066f80463678f2ba4e3f175d6a5e7c0
+  React: 3da805a4fcb127434843924494de838e9658ca78
+  react-native-linkedin-login: d9246301ca373b3b21f89a1f0cb14f62b976583d
 
 PODFILE CHECKSUM: a7ad8749881a298cc6629fbcc4352de8d4843257
 

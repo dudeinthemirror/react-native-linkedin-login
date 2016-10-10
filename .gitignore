@@ -125,3 +125,4 @@ crashlytics.properties
 crashlytics-build.properties
 
 AUTH
+/example/ios/Pods
