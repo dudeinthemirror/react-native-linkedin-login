@@ -6,9 +6,12 @@
   <link rel="stylesheet" media="all" href="doc-style.css" />
   <script src="doc-filelist.js"></script>
   <script>
-    var relativeDir = "", thisFile = "Users/jody/Documents/Projects/react-native-linkedin-login/src/LinkedinLogin.js", defaultSidebar = true;
+    var relativeDir = "";
+    var thisFile = "Users/lucian/workspace_loc/react-native-linkedin-login/src/LinkedinLogin.js";
+    var defaultSidebar = true;
   </script>
   <script src="doc-script.js"></script>
+
 </head>
 <body>
   <div id="sidebar_wrapper">
@@ -18,344 +21,383 @@
     </div>
     <div id="tree"></div>
     <div id="headings">
+
     </div>
   </div>
   <div id="sidebar-toggle"></div>
-  <div id="container"><div class="background highlight"></div>
+  <div id="container">
+    <div class="background highlight"></div>
 <table cellpadding="0" cellspacing="0">
   <tbody>
+    
       <tr>
         <td class="docs">
           <h1>LinkedinLogin.js</h1>
         </td>
         <td class="code highlight"></td>
       </tr>
+    
+    
       <tr>
         <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+        <td class="code highlight">
+          <pre class="javascript"><span class="hljs-meta">'use strict'</span>;
 
-<span class="kr">const</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react-native&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="p">{</span>
-  <span class="nx">Platform</span><span class="p">,</span>
-  <span class="nx">DeviceEventEmitter</span><span class="p">,</span>
-  <span class="nx">NativeModules</span>
-<span class="p">}</span> <span class="o">=</span> <span class="nx">React</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">RNLinkedinLogin</span> <span class="o">=</span> <span class="nx">NativeModules</span><span class="p">.</span><span class="nx">LinkedinLogin</span><span class="p">;</span>
-
-
-<span class="kr">class</span> <span class="nx">LinkedinLogin</span> <span class="p">{</span>
-
-  <span class="nx">_accessToken</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-  <span class="nx">_expiresOn</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-
-  <span class="nx">_redirectUrl</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-  <span class="nx">_clientId</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-  <span class="nx">_clientSecret</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-  <span class="nx">_state</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-  <span class="nx">_scopes</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-
-  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
-  <span class="p">}</span>
+<span class="hljs-keyword">const</span> React = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react-native'</span>);
+<span class="hljs-keyword">const</span> {
+  Platform,
+  DeviceEventEmitter,
+  NativeModules
+} = React;
+<span class="hljs-keyword">const</span> RNLinkedinLogin = NativeModules.LinkedinLogin;
 
 
-</pre></div>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LinkedinLogin</span> </span>{
+
+  _accessToken = <span class="hljs-literal">null</span>;
+  _expiresOn = <span class="hljs-literal">null</span>;
+
+  _redirectUrl = <span class="hljs-literal">null</span>;
+  _clientId = <span class="hljs-literal">null</span>;
+  _clientSecret = <span class="hljs-literal">null</span>;
+  _state = <span class="hljs-literal">null</span>;
+  _scopes = <span class="hljs-literal">null</span>;
+
+  <span class="hljs-keyword">constructor</span>() {
+  }
+
+</pre>
         </td>
       </tr>
+    
       <tr>
         <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
 </div>
 <div class="dox">
-  <div class="summary"><p>Initializes the LinkedinLogin API</p>
-  </div>
-  <div class="body">
-  </div>
-  <div class="details">
-    <div class="dox_tag_title">Params</div>
-    <div class="dox_tag_detail">
-      <span class="dox_tag_name"></span>
-      <span>{string} redirectUrl     [description]</span>
-    </div>
-    <div class="dox_tag_detail">
-      <span class="dox_tag_name"></span>
-      <span>{string} clientId        [description]</span>
-    </div>
-    <div class="dox_tag_detail">
-      <span class="dox_tag_name"></span>
-      <span>{string} clientSecret    [description]</span>
-    </div>
-    <div class="dox_tag_detail">
-      <span class="dox_tag_name"></span>
-      <span>{string} state           [description]</span>
-    </div>
-    <div class="dox_tag_detail">
-      <span class="dox_tag_name"></span>
-      <span>{array} scopes           [description]</span>
-    </div>
-    <div class="dox_tag_title">Returns</div>
-    <div class="dox_tag_detail">
-      <span class="dox_tag_name"></span>
-      <span class="dox_type">object</span>
-      <span>promise         [description]</span>
-    </div>
-  </div>
+<div class="summary">
+<p>Initializes the LinkedinLogin API</p>
 </div>
+<div class="body">
+</div>
+<div class="details">
+<div class="dox_tag_title">Params</div>
+<div class="dox_tag_detail">
+<span class="dox_tag_name">redirectUrl</span>
+<span class="dox_type">string</span>
+<span>[description]
+</span>
+</div>
+<div class="dox_tag_detail">
+<span class="dox_tag_name">clientId</span>
+<span class="dox_type">string</span>
+<span>[description]
+</span>
+</div>
+<div class="dox_tag_detail">
+<span class="dox_tag_name">clientSecret</span>
+<span class="dox_type">string</span>
+<span>[description]
+</span>
+</div>
+<div class="dox_tag_detail">
+<span class="dox_tag_name">state</span>
+<span class="dox_type">string</span>
+<span>[description]
+</span>
+</div>
+<div class="dox_tag_detail">
+<span class="dox_tag_name">scopes</span>
+<span class="dox_type">array</span>
+<span>[description]
+</span>
+</div>
+<div class="dox_tag_title">Returns</div>
+<div class="dox_tag_detail">
+<span class="dox_tag_name"></span>
+<span class="dox_type">object</span>
+<span>promise [description]
+</span>
+</div>
+</div>
+</div>
+
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-  <span class="nx">init</span><span class="p">(</span><span class="nx">redirectUrl</span><span class="p">,</span> <span class="nx">clientId</span><span class="p">,</span> <span class="nx">clientSecret</span><span class="p">,</span> <span class="nx">state</span><span class="p">,</span> <span class="nx">scopes</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">_redirectUrl</span> <span class="o">=</span> <span class="nx">redirectUrl</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">_clientId</span> <span class="o">=</span> <span class="nx">clientId</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">_clientSecret</span> <span class="o">=</span> <span class="nx">clientSecret</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">_state</span> <span class="o">=</span> <span class="nx">state</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">_scopes</span> <span class="o">=</span> <span class="nx">scopes</span><span class="p">;</span>
-  <span class="p">}</span>
+        <td class="code highlight">
+          <pre class="javascript">  init(redirectUrl, clientId, clientSecret, state, scopes) {
+    <span class="hljs-keyword">this</span>._redirectUrl = redirectUrl;
+    <span class="hljs-keyword">this</span>._clientId = clientId;
+    <span class="hljs-keyword">this</span>._clientSecret = clientSecret;
+    <span class="hljs-keyword">this</span>._state = state;
+    <span class="hljs-keyword">this</span>._scopes = scopes;
+  }
 
-
-</pre></div>
+</pre>
         </td>
       </tr>
+    
       <tr>
         <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
 </div>
 <div class="dox">
-  <div class="summary"><p>Gets the Profile image</p>
-  </div>
-  <div class="body">
-  </div>
-  <div class="details">
-    <div class="dox_tag_title">Returns</div>
-    <div class="dox_tag_detail">
-      <span class="dox_tag_name"></span>
-      <span class="dox_type">object</span>
-      <span>Returns the promise with the image</span>
-    </div>
-  </div>
+<div class="summary">
+<p>Gets the Profile image</p>
 </div>
+<div class="body">
+</div>
+<div class="details">
+<div class="dox_tag_title">Returns</div>
+<div class="dox_tag_detail">
+<span class="dox_tag_name"></span>
+<span class="dox_type">object</span>
+<span>Returns the promise with the image
+</span>
+</div>
+</div>
+</div>
+
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-  <span class="nx">getProfileImages</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">atoken</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_accessToken</span><span class="p">;</span>
+        <td class="code highlight">
+          <pre class="javascript">  getProfileImages() {
+    <span class="hljs-keyword">const</span> atoken = <span class="hljs-keyword">this</span>._accessToken;
 
-    <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="nx">DeviceEventEmitter</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s1">&#39;linkedinGetRequest&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+      DeviceEventEmitter.addListener(<span class="hljs-string">'linkedinGetRequest'</span>, (d) =&gt; {
+        <span class="hljs-keyword">const</span> data = <span class="hljs-built_in">JSON</span>.parse(d.data);
 
-        <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">values</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">resolve</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">values</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-          <span class="nx">reject</span><span class="p">(</span><span class="s1">&#39;No profile image found&#39;</span><span class="p">);</span>
-        <span class="p">}</span>
-      <span class="p">});</span>
+        <span class="hljs-keyword">if</span> (data.values) {
+          resolve(data.values);
+        } <span class="hljs-keyword">else</span> {
+          reject(<span class="hljs-string">'No profile image found'</span>);
+        }
+      });
 
-      <span class="nx">DeviceEventEmitter</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s1">&#39;linkedinGetRequestError&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
-      <span class="p">});</span>
+      DeviceEventEmitter.addListener(<span class="hljs-string">'linkedinGetRequestError'</span>, (error) =&gt; {
+        reject(error);
+      });
 
-      <span class="kr">const</span> <span class="nx">picstr</span> <span class="o">=</span> <span class="s1">&#39;https://api.linkedin.com/v1/people/~/picture-urls::(original)&#39;</span><span class="p">;</span>
-      <span class="kr">const</span> <span class="nx">picstrWithAuth</span> <span class="o">=</span> <span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="nx">picstr</span><span class="p">}</span><span class="o">?</span><span class="nx">oauth2_access_token</span><span class="o">=</span><span class="nx">$</span><span class="p">{</span><span class="nx">atoken</span><span class="p">}</span><span class="o">&amp;</span><span class="nx">format</span><span class="o">=</span><span class="nx">json</span><span class="err">`</span><span class="p">;</span>
+      <span class="hljs-keyword">const</span> picstr = <span class="hljs-string">'https://api.linkedin.com/v1/people/~/picture-urls::(original)'</span>;
+      <span class="hljs-keyword">const</span> picstrWithAuth = <span class="hljs-string">`<span class="hljs-subst">${picstr}</span>?oauth2_access_token=<span class="hljs-subst">${atoken}</span>&amp;format=json`</span>;
 
-      <span class="k">if</span> <span class="p">(</span><span class="nx">Platform</span><span class="p">.</span><span class="nx">OS</span> <span class="o">===</span> <span class="s1">&#39;android&#39;</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">RNLinkedinLogin</span><span class="p">.</span><span class="nx">getRequest</span><span class="p">(</span><span class="nx">picstr</span><span class="p">);</span>
-      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-
-</pre></div>
+      <span class="hljs-keyword">if</span> (Platform.OS === <span class="hljs-string">'android'</span>) {
+        RNLinkedinLogin.getRequest(picstr);
+      } <span class="hljs-keyword">else</span> {
+</pre>
         </td>
       </tr>
+    
       <tr>
         <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
 </div>
 <p>if ios</p>
+
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;picstrWithAuth&#39;</span><span class="p">,</span> <span class="nx">picstrWithAuth</span><span class="p">);</span>
+        <td class="code highlight">
+          <pre class="javascript">        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'picstrWithAuth'</span>, picstrWithAuth);
 
-        <span class="nx">fetch</span><span class="p">(</span><span class="nx">picstrWithAuth</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">dta</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;fetched profile image&#39;</span><span class="p">,</span> <span class="nx">dta</span><span class="p">);</span>
+        fetch(picstrWithAuth).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{
+        	<span class="hljs-keyword">return</span> response.json();
+        }).then(<span class="hljs-function">(<span class="hljs-params">data</span>) =&gt;</span> {
 
-          <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">dta</span><span class="p">.</span><span class="nx">_bodyText</span><span class="p">);</span>
+          <span class="hljs-keyword">if</span> (data.values &amp;&amp; data.values.length &gt; <span class="hljs-number">0</span>) {
+            resolve(data.values);
+          } <span class="hljs-keyword">else</span> {
+            reject(<span class="hljs-string">'Profile has no images'</span>);
+          }
+        });
+      }
+    });
+  }
 
-          <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">values</span> <span class="o">&amp;&amp;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">values</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">resolve</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">values</span><span class="p">);</span>
-          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="nx">reject</span><span class="p">(</span><span class="s1">&#39;Profile has no images&#39;</span><span class="p">);</span>
-          <span class="p">}</span>
-        <span class="p">});</span>
-      <span class="p">}</span>
-    <span class="p">});</span>
-  <span class="p">}</span>
-
-
-</pre></div>
+</pre>
         </td>
       </tr>
+    
       <tr>
         <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
 </div>
 <div class="dox">
-  <div class="summary"><p>Gets the user profile</p>
-  </div>
-  <div class="body">
-  </div>
-  <div class="details">
-    <div class="dox_tag_title">Returns</div>
-    <div class="dox_tag_detail">
-      <span class="dox_tag_name"></span>
-      <span class="dox_type">object</span>
-      <span>Returns a promise with the user object or error</span>
-    </div>
-  </div>
+<div class="summary">
+<p>Gets the user profile</p>
 </div>
+<div class="body">
+</div>
+<div class="details">
+<div class="dox_tag_title">Returns</div>
+<div class="dox_tag_detail">
+<span class="dox_tag_name"></span>
+<span class="dox_type">object</span>
+<span>Returns a promise with the user object or error
+</span>
+</div>
+</div>
+</div>
+
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-  <span class="nx">getProfile</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">atoken</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_accessToken</span><span class="p">;</span>
+        <td class="code highlight">
+          <pre class="javascript">  getProfile() {
+    <span class="hljs-keyword">const</span> atoken = <span class="hljs-keyword">this</span>._accessToken;
 
-    <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="nx">DeviceEventEmitter</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s1">&#39;linkedinGetRequest&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+      DeviceEventEmitter.addListener(<span class="hljs-string">'linkedinGetRequest'</span>, (d) =&gt; {
+        <span class="hljs-keyword">const</span> data = <span class="hljs-built_in">JSON</span>.parse(d.data);
 
-        <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">resolve</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
-        <span class="p">}</span>
-      <span class="p">});</span>
+        <span class="hljs-keyword">if</span> (data) {
+          resolve(data);
+        }
+      });
 
-      <span class="nx">DeviceEventEmitter</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s1">&#39;linkedinGetRequestError&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
-      <span class="p">});</span>
+      DeviceEventEmitter.addListener(<span class="hljs-string">'linkedinGetRequestError'</span>, (error) =&gt; {
+        reject(error);
+      });
 
-      <span class="kr">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="s1">&#39;id,first-name,last-name,industry,email-address&#39;</span><span class="p">;</span>
-      <span class="kr">const</span> <span class="nx">profilestr</span> <span class="o">=</span> <span class="err">`</span><span class="nx">https</span><span class="o">:</span><span class="c1">//api.linkedin.com/v1/people/~:(${options})`;</span>
-      <span class="kr">const</span> <span class="nx">profilestrWithAuth</span> <span class="o">=</span> <span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="nx">profilestr</span><span class="p">}</span><span class="o">?</span><span class="nx">oauth2_access_token</span><span class="o">=</span><span class="nx">$</span><span class="p">{</span><span class="nx">atoken</span><span class="p">}</span><span class="o">&amp;</span><span class="nx">format</span><span class="o">=</span><span class="nx">json</span><span class="err">`</span><span class="p">;</span>
+      <span class="hljs-keyword">const</span> options = <span class="hljs-string">'id,first-name,last-name,industry,email-address'</span>;
+      <span class="hljs-keyword">const</span> profilestr = <span class="hljs-string">`https://api.linkedin.com/v1/people/~:(<span class="hljs-subst">${options}</span>)`</span>;
+      <span class="hljs-keyword">const</span> profilestrWithAuth = <span class="hljs-string">`<span class="hljs-subst">${profilestr}</span>?oauth2_access_token=<span class="hljs-subst">${atoken}</span>&amp;format=json`</span>;
 
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">profilestrWithAuth</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nx">Platform</span><span class="p">.</span><span class="nx">OS</span> <span class="o">===</span> <span class="s1">&#39;android&#39;</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">RNLinkedinLogin</span><span class="p">.</span><span class="nx">getRequest</span><span class="p">(</span><span class="nx">profilestr</span><span class="p">);</span>
-      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="nx">fetch</span><span class="p">(</span><span class="nx">profilestrWithAuth</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">dta</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-          <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">dta</span><span class="p">.</span><span class="nx">_bodyText</span><span class="p">);</span>
+      <span class="hljs-built_in">console</span>.log(profilestrWithAuth);
+      <span class="hljs-keyword">if</span> (Platform.OS === <span class="hljs-string">'android'</span>) {
+        RNLinkedinLogin.getRequest(profilestr);
+      } <span class="hljs-keyword">else</span> {
+        fetch(profilestrWithAuth).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{
+        	<span class="hljs-keyword">return</span> response.json();
+        }).then(<span class="hljs-function">(<span class="hljs-params">data</span>) =&gt;</span> {
 
-          <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">resolve</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
-          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="nx">reject</span><span class="p">(</span><span class="s1">&#39;No profile found&#39;</span><span class="p">);</span>
-          <span class="p">}</span>
-        <span class="p">});</span>
-      <span class="p">}</span>
-    <span class="p">});</span>
-  <span class="p">}</span>
+          <span class="hljs-keyword">if</span> (data) {
+            resolve(data);
+          } <span class="hljs-keyword">else</span> {
+            reject(<span class="hljs-string">'No profile found'</span>);
+          }
+        });
+      }
+    });
+  }
 
-
-</pre></div>
+</pre>
         </td>
       </tr>
+    
       <tr>
         <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-6" id="section-6">&#182;</a>
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
 </div>
 <div class="dox">
-  <div class="summary"><p>Sets the Linkedin session</p>
-  </div>
-  <div class="body">
-  </div>
-  <div class="details">
-    <div class="dox_tag_title">Params</div>
-    <div class="dox_tag_detail">
-      <span class="dox_tag_name"></span>
-      <span>{string} accessToken Linkedin access token</span>
-    </div>
-    <div class="dox_tag_detail">
-      <span class="dox_tag_name"></span>
-      <span>{Number} expiresOn   The access token's expiration number</span>
-    </div>
-    <div class="dox_tag_title">Returns</div>
-    <div class="dox_tag_detail">
-      <span class="dox_tag_name"></span>
-      <span class="dox_type">object</span>
-      <span>promise     Returns if access token is valid or not</span>
-    </div>
-  </div>
+<div class="summary">
+<p>Sets the Linkedin session</p>
 </div>
+<div class="body">
+</div>
+<div class="details">
+<div class="dox_tag_title">Params</div>
+<div class="dox_tag_detail">
+<span class="dox_tag_name">accessToken</span>
+<span class="dox_type">string</span>
+<span>Linkedin access token
+</span>
+</div>
+<div class="dox_tag_detail">
+<span class="dox_tag_name">expiresOn</span>
+<span class="dox_type">Number</span>
+<span>The access token's expiration number
+</span>
+</div>
+<div class="dox_tag_title">Returns</div>
+<div class="dox_tag_detail">
+<span class="dox_tag_name"></span>
+<span class="dox_type">object</span>
+<span>promise Returns if access token is valid or not
+</span>
+</div>
+</div>
+</div>
+
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-  <span class="nx">setSession</span><span class="p">(</span><span class="nx">accessToken</span><span class="p">,</span> <span class="nx">expiresOn</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">_accessToken</span> <span class="o">=</span> <span class="nx">accessToken</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">_expiresOn</span> <span class="o">=</span> <span class="nx">expiresOn</span><span class="p">;</span>
-  <span class="p">}</span>
+        <td class="code highlight">
+          <pre class="javascript">  setSession(accessToken, expiresOn) {
+    <span class="hljs-keyword">this</span>._accessToken = accessToken;
+    <span class="hljs-keyword">this</span>._expiresOn = expiresOn;
+  }
 
-
-</pre></div>
+</pre>
         </td>
       </tr>
+    
       <tr>
         <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-7" id="section-7">&#182;</a>
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
 </div>
 <div class="dox">
-  <div class="summary"><p>Logs the user in</p>
-  </div>
-  <div class="body">
-  </div>
-  <div class="details">
-    <div class="dox_tag_title">Returns</div>
-    <div class="dox_tag_detail">
-      <span class="dox_tag_name"></span>
-      <span class="dox_type">promise</span>
-      <span>returns whether or not the user logged in successfully</span>
-    </div>
-  </div>
+<div class="summary">
+<p>Logs the user in</p>
 </div>
+<div class="body">
+</div>
+<div class="details">
+<div class="dox_tag_title">Returns</div>
+<div class="dox_tag_detail">
+<span class="dox_tag_name"></span>
+<span class="dox_type">promise</span>
+<span>returns whether or not the user logged in successfully
+</span>
+</div>
+</div>
+</div>
+
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-  <span class="nx">login</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="nx">DeviceEventEmitter</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s1">&#39;linkedinLoginError&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
-      <span class="p">});</span>
+        <td class="code highlight">
+          <pre class="javascript">  login() {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+      DeviceEventEmitter.addListener(<span class="hljs-string">'linkedinLoginError'</span>, (error) =&gt; {
+        reject(error);
+      });
 
-      <span class="nx">DeviceEventEmitter</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s1">&#39;linkedinLogin&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">_accessToken</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">_expiresOn</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">expiresOn</span><span class="p">;</span>
+      DeviceEventEmitter.addListener(<span class="hljs-string">'linkedinLogin'</span>, (data) =&gt; {
+        <span class="hljs-keyword">this</span>._accessToken = data.accessToken;
+        <span class="hljs-keyword">this</span>._expiresOn = data.expiresOn;
 
-        <span class="nx">resolve</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
-      <span class="p">});</span>
+        resolve(data);
+      });
 
-      <span class="nx">RNLinkedinLogin</span><span class="p">.</span><span class="nx">login</span><span class="p">(</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">_clientId</span><span class="p">,</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">_redirectUrl</span><span class="p">,</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">_clientSecret</span><span class="p">,</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">_state</span><span class="p">,</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">_scopes</span>
-      <span class="p">);</span>
-    <span class="p">});</span>
-  <span class="p">}</span>
+      RNLinkedinLogin.login(
+        <span class="hljs-keyword">this</span>._clientId,
+        <span class="hljs-keyword">this</span>._redirectUrl,
+        <span class="hljs-keyword">this</span>._clientSecret,
+        <span class="hljs-keyword">this</span>._state,
+        <span class="hljs-keyword">this</span>._scopes
+      );
+    });
+  }
 
-  <span class="nx">logout</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">_accessToken</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+  logout() {
+    <span class="hljs-keyword">this</span>._accessToken = <span class="hljs-literal">null</span>;
+  }
+}
 
-<span class="kr">const</span> <span class="nx">linkedinLogin</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LinkedinLogin</span><span class="p">();</span>
+<span class="hljs-keyword">const</span> linkedinLogin = <span class="hljs-keyword">new</span> LinkedinLogin();
 
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">linkedinLogin</span><span class="p">;</span>
-</pre></div>
+<span class="hljs-built_in">module</span>.exports = linkedinLogin;
+
+</pre>
         </td>
       </tr>
+    
   </tbody>
 </table>
+
   </div>
 </body>
 </html>
