@@ -77,13 +77,11 @@ RCT_EXPORT_METHOD(login:(NSString *)clientId redirectUrl:(NSString *)redirectUrl
 
 
 - (LIALinkedInHttpClient *)client {
-  dispatch_async(dispatch_get_main_queue(), ^{
   LIALinkedInApplication *application = [LIALinkedInApplication applicationWithRedirectURL:self.redirectUrl
                                                                                   clientId:self.clientId
                                                                               clientSecret:self.clientSecret
                                                                                      state:self.state
                                                                              grantedAccess:self.scopes];
-                                                                           });
   return [LIALinkedInHttpClient clientForApplication:application presentingViewController:nil];
 }
 

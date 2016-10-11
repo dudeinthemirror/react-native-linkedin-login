@@ -135,7 +135,9 @@
     nc.modalPresentationStyle = UIModalPresentationFormSheet;
   }
 
-  [self.presentingViewController presentViewController:nc animated:YES completion:nil];
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self.presentingViewController presentViewController:nc animated:YES completion:nil];
+  });
 }
 
 - (void)hideAuthenticateView {
